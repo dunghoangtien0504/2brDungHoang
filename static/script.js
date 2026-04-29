@@ -1,6 +1,12 @@
 let currentTable = 'knowledge';
 let isEditing = false;
 
+const sectionTitles = {
+    'knowledge': 'Knowledge Library',
+    'business': 'Business Hub',
+    'brand_voice': 'Brand Voice'
+};
+
 async function checkPassword() {
     const passwordInput = document.getElementById('password-input');
     const password = passwordInput.value.trim();
@@ -13,8 +19,7 @@ async function checkPassword() {
 
     if (response.ok) {
         document.getElementById('auth-overlay').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
-        document.getElementById('add-btn').style.display = 'flex';
+        document.getElementById('main-content').style.display = 'flex';
         loadItems();
     } else {
         document.getElementById('auth-error').style.display = 'block';
@@ -27,6 +32,8 @@ async function loadItems() {
     const grid = document.getElementById('items-grid');
     grid.innerHTML = '';
 
+    document.getElementById('current-section-title').innerText = sectionTitles[currentTable];
+
     items.forEach(item => {
         const card = document.createElement('div');
         card.className = 'card';
@@ -34,10 +41,14 @@ async function loadItems() {
             <h3>${item.title}</h3>
             <p>${item.content}</p>
             <div class="card-footer">
-                <span>${new Date(item.created_at).toLocaleDateString('vi-VN')}</span>
+                <span class="card-date"><i class="ph ph-calendar-blank"></i> ${new Date(item.created_at).toLocaleDateString('vi-VN')}</span>
                 <div class="actions">
-                    <button class="btn-small" onclick="editItem(${item.id}, '${item.title.replace(/'/g, "\\'")}', '${item.content.replace(/'/g, "\\'")}')">Sửa</button>
-                    <button class="btn-small btn-delete" onclick="deleteItem(${item.id})">Xóa</button>
+                    <button class="btn-small" title="Sửa" onclick="editItem(${item.id}, '${item.title.replace(/'/g, "\\'")}', '${item.content.replace(/'/g, "\\'").replace(/\n/g, '\\n')}')">
+                        <i class="ph ph-pencil-simple"></i>
+                    </button>
+                    <button class="btn-small btn-delete" title="Xóa" onclick="deleteItem(${item.id})">
+                        <i class="ph ph-trash"></i>
+                    </button>
                 </div>
             </div>
         `;
@@ -47,7 +58,7 @@ async function loadItems() {
 
 function switchTab(table, btn) {
     currentTable = table;
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     loadItems();
 }
