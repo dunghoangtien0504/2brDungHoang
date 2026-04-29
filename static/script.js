@@ -1,4 +1,4 @@
-let currentTable = 'knowledge';
+let currentTable = 'dashboard';
 let isEditing = false;
 
 const sectionTitles = {
@@ -19,8 +19,10 @@ async function checkPassword() {
 
     if (response.ok) {
         document.getElementById('auth-overlay').style.display = 'none';
-        document.getElementById('main-content').style.display = 'flex';
-        loadItems();
+        document.getElementById('main-app').style.display = 'grid'; // App uses grid layout
+        // Default to dashboard
+        document.querySelector('[data-nav="dashboard"]').click();
+        initBrainAnimation();
     } else {
         document.getElementById('auth-error').style.display = 'block';
     }
@@ -36,17 +38,17 @@ async function loadItems() {
 
     items.forEach(item => {
         const card = document.createElement('div');
-        card.className = 'card';
+        card.className = 'item-card';
         card.innerHTML = `
             <h3>${item.title}</h3>
             <p>${item.content}</p>
-            <div class="card-footer">
-                <span class="card-date"><i class="ph ph-calendar-blank"></i> ${new Date(item.created_at).toLocaleDateString('vi-VN')}</span>
-                <div class="actions">
-                    <button class="btn-small" title="Sửa" onclick="editItem(${item.id}, '${item.title.replace(/'/g, "\\'")}', '${item.content.replace(/'/g, "\\'").replace(/\n/g, '\\n')}')">
+            <div class="item-footer">
+                <span class="item-date"><i class="ph ph-calendar-blank"></i> ${new Date(item.created_at).toLocaleDateString('vi-VN')}</span>
+                <div class="item-actions">
+                    <button class="action-btn" title="Sửa" onclick="editItem(${item.id}, '${item.title.replace(/'/g, "\\'")}', '${item.content.replace(/'/g, "\\'").replace(/\n/g, '\\n')}')">
                         <i class="ph ph-pencil-simple"></i>
                     </button>
-                    <button class="btn-small btn-delete" title="Xóa" onclick="deleteItem(${item.id})">
+                    <button class="action-btn delete" title="Xóa" onclick="deleteItem(${item.id})">
                         <i class="ph ph-trash"></i>
                     </button>
                 </div>
@@ -58,9 +60,27 @@ async function loadItems() {
 
 function switchTab(table, btn) {
     currentTable = table;
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    loadItems();
+    
+    // Update active state on nav links
+    document.querySelectorAll('.nav-link[data-nav]').forEach(b => b.classList.remove('active'));
+    if (btn) {
+        btn.classList.add('active');
+    } else {
+        const activeNav = document.querySelector(`[data-nav="${table}"]`);
+        if(activeNav) activeNav.classList.add('active');
+    }
+
+    const dashboardView = document.getElementById('dashboard-view');
+    const itemsContainer = document.getElementById('items-container');
+
+    if (table === 'dashboard') {
+        dashboardView.style.display = 'block';
+        itemsContainer.style.display = 'none';
+    } else {
+        dashboardView.style.display = 'none';
+        itemsContainer.style.display = 'block';
+        loadItems();
+    }
 }
 
 function openModal() {
@@ -113,6 +133,24 @@ async function deleteItem(id) {
         if (response.ok) {
             loadItems();
         }
+    }
+}
+
+function initBrainAnimation() {
+    const stage = document.getElementById('brain-stage');
+    if (stage && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        stage.addEventListener('mousemove', (e) => {
+            const rect = stage.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const rx = ((y / rect.height) - 0.5) * -10;
+            const ry = ((x / rect.width) - 0.5) * 12;
+            stage.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+        });
+
+        stage.addEventListener('mouseleave', () => {
+            stage.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        });
     }
 }
 
