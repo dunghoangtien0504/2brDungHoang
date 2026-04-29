@@ -8,9 +8,16 @@ from typing import List, Optional
 
 app = FastAPI()
 
+import os
+
+# Get absolute path to the current directory (project root)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, 'brain.db')
+STATIC_PATH = os.path.join(BASE_DIR, 'static')
+
 # Database connection helper
 def get_db():
-    conn = sqlite3.connect('brain.db', check_same_thread=False)
+    conn = sqlite3.connect(DB_PATH, check_same_thread=False)
     conn.row_factory = sqlite3.Row
     try:
         yield conn
@@ -78,14 +85,14 @@ async def delete_item(table: str, item_id: int, db: sqlite3.Connection = Depends
     return {"status": "success"}
 
 # Serve static files
-if not os.path.exists("static"):
-    os.makedirs("static")
+if not os.path.exists(STATIC_PATH):
+    os.makedirs(STATIC_PATH)
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory=STATIC_PATH), name="static")
 
 @app.get("/")
 async def read_index():
-    return FileResponse("static/index.html")
+    return FileResponse(os.path.join(STATIC_PATH, "index.html"))
 
 if __name__ == "__main__":
     import uvicorn
