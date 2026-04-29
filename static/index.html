@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Brain - Bộ Não Thứ 2</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob" style="top: 10%; left: 10%;"></div>
+        <div class="blob" style="bottom: 20%; right: 10%; animation-delay: -5s;"></div>
+    </div>
+
+    <!-- Password Overlay -->
+    <div id="auth-overlay">
+        <div class="auth-card">
+            <h2>Hệ Thống Bảo Mật</h2>
+            <p style="color: #888; margin-bottom: 2rem;">Vui lòng nhập mã truy cập để tiếp tục.</p>
+            <input type="password" id="password-input" placeholder="Nhập mã truy cập...">
+            <button onclick="checkPassword()">Mở Khóa</button>
+            <p id="auth-error" style="color: #ff4444; margin-top: 1rem; display: none;">Mã truy cập không chính xác!</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container" id="main-content" style="display: none;">
+        <header>
+            <h1>My Second Brain</h1>
+            <p style="color: var(--text-secondary);">Hệ thống lưu trữ kiến thức, công việc và phong cách cá nhân.</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="switchTab('knowledge', this)">Knowledge</button>
+            <button class="tab-btn" onclick="switchTab('business', this)">Business</button>
+            <button class="tab-btn" onclick="switchTab('brand_voice', this)">Brand Voice</button>
+        </nav>
+
+        <div id="items-grid" class="grid">
+            <!-- Items will be loaded here -->
+        </div>
+    </div>
+
+    <button id="add-btn" onclick="openModal()" style="display: none;">+</button>
+
+    <!-- Add/Edit Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-title" style="margin-bottom: 1.5rem;">Thêm Nội Dung Mới</h2>
+            <input type="hidden" id="edit-id">
+            <input type="text" id="item-title" placeholder="Tiêu đề...">
+            <textarea id="item-content" placeholder="Nội dung chi tiết..." rows="5"></textarea>
+            <div style="display: flex; gap: 1rem;">
+                <button onclick="saveItem()" style="flex: 2;">Lưu Lại</button>
+                <button onclick="closeModal()" style="flex: 1; background: #333;">Hủy</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

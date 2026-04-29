@@ -1,0 +1,22 @@
+Total rows: 21
+ID: 43, Title: TONE, Content Length: 399
+ID: 44, Title: TỪ HAY DÙNG, Content Length: 553
+ID: 45, Title: 📌 Tóm tắt nhanh — 5 lát cắt cốt lõi, Content Length: 789
+ID: 46, Title: 🎙️ TONE — Giọng của Dũng nghe như thế nào, Content Length: 1200
+ID: 47, Title: ✅ TỪ NGỮ HAY DÙNG (phải rải tự nhiên trong bài, thiếu là bài chưa giống Dũng), Content Length: 980
+ID: 48, Title: 🚫 TỪ NGỮ TUYỆT ĐỐI KHÔNG DÙNG, Content Length: 1315
+ID: 49, Title: 👥 ĐỐI TƯỢNG ĐỌC, Content Length: 1307
+ID: 50, Title: 📐 Á Ấ Ệ ẩ, Content Length: 54
+ID: 51, Title: 📐 PHONG CÁCH XUẤT HIỆN — Format chuẩn của một bài Dũng, Content Length: 1898
+ID: 52, Title: 📚 BÀI VIẾT MẪU THẬT (paste vào AI để học giọng), Content Length: 1
+ID: 53, Title: Bài mẫu 1 — "ANH KHOAI LANG THANG VÀ ANH HÀ ANH TUẤN" (chiêm nghiệm), Content Length: 1017
+ID: 54, Title: Bài mẫu 2 — "30km ĐẦU TIÊN MỪNG TUỔI 30" (kể chuyện + bài học), Content Length: 1017
+ID: 55, Title: Bài mẫu 3 — "TRỌN VẸN" (kể chuyện khách hàng), Content Length: 909
+ID: 56, Title: Bài mẫu 4 — "CỨ CHẠY ĐI" (truyền cảm hứng nhẹ), Content Length: 760
+ID: 57, Title: Bài mẫu 5 — "CHỈ CẦN CÒN NƠI ĐỂ TRỞ VỀ" (tâm sự gia đình + sức khoẻ), Content Length: 1118
+ID: 58, Title: Bài mẫu 6 — "MỌI THỨ SẼ THAY ĐỔI KHI BẠN THAY ĐỔI" (chiêm nghiệm tâm linh), Content Length: 1401
+ID: 59, Title: Bài mẫu 7 — "TỪ NHÂN VẬT PHỤ THÀNH NHÂN VẬT CHÍNH" (phát triển bản thân, dí dỏm), Content Length: 1177
+ID: 60, Title: Bài mẫu 8 — "TỬ TẾ TRƯỚC ĐÃ" (chiêm nghiệm kinh doanh), Content Length: 790
+ID: 61, Title: Bài mẫu 9 — "SÁCH NHƯ NGƯỜI BẠN" (chia sẻ thói quen, văn nói nhẹ), Content Length: 1055
+ID: 62, Title: Bài mẫu 10 — "TẬP TRUNG VÀO CHÍNH MÌNH" (tâm + lời thầy), Content Length: 1117
+ID: 63, Title: 🚨 DẤU HIỆU BÀI ĐANG GIỐNG AI — Phải tự kiểm tra trước khi xuất ra, Content Length: 864
