@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
   // Chỉ cho phép phương thức POST
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method Not Allowed' });
@@ -25,13 +25,13 @@ export default async function handler(req, res) {
           value: fullName
         },
         {
-          slug: "industry", // Hãy đảm bảo slug này tồn tại trong Systeme.io Custom Fields
+          slug: "industry", 
           value: industry
         }
       ],
       tags: [
         {
-          id: 1991468 // ID Tag từ yêu cầu của User
+          id: 1991468 
         }
       ]
     };
@@ -58,4 +58,4 @@ export default async function handler(req, res) {
     console.error('Lỗi Server Function:', error);
     return res.status(500).json({ message: 'Đã xảy ra lỗi nội bộ máy chủ.' });
   }
-}
+};
