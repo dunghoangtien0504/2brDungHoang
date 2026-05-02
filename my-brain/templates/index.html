@@ -16,6 +16,7 @@
             <a href="#knowledge">Kiến Thức</a>
             <a href="#business">Kinh Doanh</a>
             <a href="#brand-voice">Giọng Văn</a>
+            <a href="#articles">Bài viết</a>
             <a href="#brain-score">Brain Score</a>
         </div>
     </nav>
@@ -96,6 +97,38 @@
             </div>
         </section>
 
+        <!-- Articles Section (CRUD) -->
+        <section id="articles" class="data-section">
+            <div class="section-header">
+                <h2>Quản Lý Bài Viết</h2>
+                <p>Nơi tinh chỉnh Bản thảo AI (Draft A) thành Bản đăng thực tế (Final B).</p>
+                <button class="primary-btn" onclick="openArticleModal()">+ Thêm Bài Viết Mới</button>
+            </div>
+            
+            <div class="card-grid list-view">
+                {% for article in data.articles %}
+                <div class="data-row article-row">
+                    <div class="row-content">
+                        <h3>Ngày {{ article.day }} - {{ article.session }}</h3>
+                        <div class="article-preview-grid">
+                            <div class="preview-box">
+                                <strong>Bản A (AI Draft):</strong>
+                                <p class="truncate">{{ article.draft_a[:150] }}...</p>
+                            </div>
+                            <div class="preview-box">
+                                <strong>Bản B (User Final):</strong>
+                                <p class="truncate">{{ article.final_b[:150] if article.final_b else 'Chưa có bản chỉnh sửa...' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-meta">
+                        <button class="edit-btn" onclick="openArticleModal({{ article.day }}, '{{ article.session }}', `{{ article.draft_a }}`, `{{ article.final_b or '' }}`)">Sửa & So sánh</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
         <!-- Brain Score Section -->
         <section id="brain-score" class="data-section alt-bg">
             <div class="section-header">
@@ -141,8 +174,44 @@
 
     </main>
 
-    <!-- Modal Cập Nhật -->
-    <div id="scoreModal" class="modal">
+    <!-- Modal Bài Viết -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content large-modal">
+            <span class="close" onclick="closeArticleModal()">&times;</span>
+            <h2 id="articleModalTitle">Chỉnh sửa Bài viết</h2>
+            <form action="/save_article" method="post">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Ngày:</label>
+                        <input type="number" name="day" id="art_day" required min="1" max="7">
+                    </div>
+                    <div class="form-group">
+                        <label>Phiên:</label>
+                        <select name="session" id="art_session">
+                            <option value="Sáng">Sáng</option>
+                            <option value="Trưa">Trưa</option>
+                            <option value="Tối">Tối</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="compare-container">
+                    <div class="form-group">
+                        <label>Bản A (AI Draft - Chỉ đọc):</label>
+                        <textarea name="draft_a" id="art_draft" readonly style="background: #f9f9f9;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Bản B (User Final - Hãy sửa ở đây):</label>
+                        <textarea name="final_b" id="art_final" placeholder="Dán nội dung bạn đã chỉnh sửa vào đây..."></textarea>
+                    </div>
+                </div>
+                
+                <button type="submit" class="primary-btn" style="width: 100%;">Lưu & Tự động chấm điểm</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Cập Nhật Brain Score -->
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle">Cập nhật</h2>
@@ -175,6 +244,18 @@
     </div>
 
     <script>
+        function openArticleModal(day=1, session='Sáng', draft='', final='') {
+            document.getElementById('art_day').value = day;
+            document.getElementById('art_session').value = session;
+            document.getElementById('art_draft').value = draft;
+            document.getElementById('art_final').value = final;
+            document.getElementById('articleModal').style.display = "block";
+        }
+
+        function closeArticleModal() {
+            document.getElementById('articleModal').style.display = "none";
+        }
+
         function openModal(day, session, time, score, feedback, addition, comment) {
             document.getElementById('modalTitle').innerText = 'Cập nhật Ngày ' + day + ' - ' + session;
             document.getElementById('input_day').value = day;

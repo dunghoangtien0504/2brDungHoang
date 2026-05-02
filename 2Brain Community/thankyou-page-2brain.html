@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng Ký Thành Công! — 2Brain Community</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0C0C0C;
+    --bg2: #141414;
+    --card: #1A1A1A;
+    --border: rgba(255,255,255,0.08);
+    --orange: #F97316;
+    --tg-blue: #229ED9;
+    --tg-dark: #1A75A8;
+    --tg-glow: rgba(34,158,217,0.3);
+    --amber: #FBBF24;
+    --white: #F5F5F0;
+    --muted: rgba(245,245,240,0.6);
+    --red: #EF4444;
+    --green: #22C55E;
+    --be: #F5F0E8;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--white);
+    font-family:'Nunito',sans-serif;font-size:16px;line-height:1.7;
+    overflow-x:hidden;min-height:100vh;
+  }
+  .container{max-width:600px;margin:0 auto;padding:0 24px}
+
+  /* ═══ HEADER ═══ */
+  .header{
+    text-align:center;padding:56px 0 40px;
+    background:radial-gradient(ellipse 70% 50% at 50% 0%, rgba(34,158,217,0.15) 0%, transparent 70%);
+  }
+  .success-icon{
+    width:72px;height:72px;
+    background:rgba(34,197,94,0.15);
+    border:2px solid rgba(34,197,94,0.3);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:32px;margin:0 auto 24px;
+    animation:pop 0.5s cubic-bezier(0.17,0.67,0.32,1.3) forwards;
+  }
+  @keyframes pop{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
+  .header h1{
+    font-family:'Oswald',sans-serif;
+    font-size:38px;font-weight:700;color:var(--white);margin-bottom:12px;
+  }
+  .header .warning-text{
+    display:inline-block;
+    color:#FCA5A5;font-size:15px;font-weight:700;
+    background:rgba(239,68,68,0.1);
+    border:1px solid rgba(239,68,68,0.25);
+    border-radius:8px;padding:10px 20px;margin-top:8px;
+  }
+
+  /* ═══ TG CTA BOX ═══ */
+  .tg-box{
+    background:linear-gradient(135deg, #1A3D5C 0%, #0D2840 100%);
+    border:2px solid rgba(34,158,217,0.4);
+    border-radius:16px;padding:36px 32px;
+    text-align:center;margin:32px 0;
+    position:relative;overflow:hidden;
+    animation:slideIn 0.6s ease forwards;animation-delay:0.3s;opacity:0;
+  }
+  @keyframes slideIn{0%{transform:translateY(20px);opacity:0}100%{transform:translateY(0);opacity:1}}
+  .tg-box::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse 70% 50% at 50% 100%, rgba(34,158,217,0.1) 0%, transparent 70%);
+  }
+  .tg-box-title{
+    font-family:'Oswald',sans-serif;
+    font-size:22px;font-weight:700;
+    color:var(--white);margin-bottom:14px;
+    position:relative;
+  }
+  .tg-box-desc{
+    font-size:14px;color:rgba(255,255,255,0.75);
+    line-height:1.7;margin-bottom:28px;
+    position:relative;
+  }
+  .tg-box-desc strong{color:var(--amber)}
+  .btn-telegram{
+    display:inline-flex;align-items:center;gap:12px;
+    background:#fff;color:var(--tg-dark);
+    font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;letter-spacing:0.5px;
+    padding:16px 32px;border-radius:10px;
+    text-decoration:none;cursor:pointer;
+    transition:all 0.2s;
+    position:relative;
+    animation:pulse 2.5s ease-in-out infinite;
+  }
+  .btn-telegram:hover{transform:translateY(-2px);box-shadow:0 8px 28px var(--tg-glow)}
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 0 0 var(--tg-glow)}
+    50%{box-shadow:0 0 0 12px rgba(34,158,217,0)}
+  }
+  .tg-icon{
+    width:28px;height:28px;
+    background:var(--tg-blue);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;color:#fff;flex-shrink:0;
+  }
+  .tg-warning{
+    display:flex;align-items:center;gap:8px;
+    margin-top:18px;padding:10px 16px;
+    background:rgba(251,191,36,0.08);
+    border:1px solid rgba(251,191,36,0.2);
+    border-radius:8px;
+    font-size:12px;color:var(--amber);
+    text-align:left;position:relative;
+  }
+
+  /* ═══ CHECKLIST / TIMELINE ═══ */
+  .steps-section{margin:24px 0}
+  .steps-title{
+    font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;
+    color:var(--white);margin-bottom:20px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .steps-list{position:relative;padding-left:0}
+  .step{
+    display:flex;align-items:flex-start;gap:16px;
+    padding:20px 20px 20px 20px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;margin-bottom:10px;
+    transition:border-color 0.2s;
+    animation:fadeUp 0.5s ease forwards;opacity:0;
+  }
+  .step:nth-child(1){animation-delay:0.5s}
+  .step:nth-child(2){animation-delay:0.65s;border-color:rgba(34,158,217,0.3)}
+  .step:nth-child(3){animation-delay:0.8s}
+  .step:nth-child(4){animation-delay:0.95s}
+  @keyframes fadeUp{0%{transform:translateY(12px);opacity:0}100%{transform:translateY(0);opacity:1}}
+  .step-icon{
+    width:36px;height:36px;flex-shrink:0;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:700;margin-top:2px;
+  }
+  .step-icon.done{background:rgba(34,197,94,0.15);color:var(--green);border:1px solid rgba(34,197,94,0.3)}
+  .step-icon.active{background:rgba(34,158,217,0.15);color:var(--tg-blue);border:1px solid rgba(34,158,217,0.3)}
+  .step-icon.pending{background:rgba(255,255,255,0.06);color:var(--muted);border:1px solid var(--border)}
+  .step-content h3{font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px}
+  .step-content p{font-size:13px;color:var(--muted);line-height:1.6}
+  .step-badge{
+    display:inline-block;
+    font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+    padding:2px 10px;border-radius:100px;margin-bottom:6px;
+  }
+  .badge-done{background:rgba(34,197,94,0.15);color:var(--green)}
+  .badge-action{background:rgba(34,158,217,0.15);color:var(--tg-blue)}
+  .badge-soon{background:rgba(255,255,255,0.06);color:var(--muted)}
+
+  /* ═══ VIRAL BOX ═══ */
+  .viral-box{
+    background:rgba(245,240,232,0.04);
+    border:1px dashed rgba(245,240,232,0.15);
+    border-radius:12px;padding:24px;margin:24px 0;
+    animation:fadeUp 0.5s ease forwards;animation-delay:1.1s;opacity:0;
+  }
+  .viral-box h3{font-size:16px;font-weight:700;color:var(--white);margin-bottom:10px}
+  .viral-box p{font-size:13px;color:var(--muted);margin-bottom:14px}
+  .share-link-box{
+    background:var(--card);border:1px solid var(--border);border-radius:8px;
+    padding:12px 16px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  }
+  .share-link{font-size:12px;color:var(--muted);font-family:monospace;flex:1;word-break:break-all}
+  .copy-btn{
+    font-size:12px;font-weight:700;
+    background:var(--orange);color:#fff;
+    border:none;border-radius:6px;padding:6px 14px;cursor:pointer;
+    flex-shrink:0;transition:opacity 0.2s;
+  }
+  .copy-btn:hover{opacity:0.85}
+
+  /* ═══ FOOTER ═══ */
+  footer{padding:32px 0 40px;text-align:center;font-size:13px;color:rgba(245,245,240,0.3)}
+  footer span{color:rgba(245,245,240,0.5)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <div class="success-icon">✓</div>
+    <h1>Đăng ký thành công!</h1>
+    <p class="warning-text">⚠️ Nhưng khoan đã — còn 1 việc quan trọng bạn cần làm ngay!</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- TG CTA BOX -->
+  <div class="tg-box">
+    <p class="tg-box-title">👉 VÀO NHÓM TELEGRAM NGAY BÂY GIỜ</p>
+    <p class="tg-box-desc">
+      Đây là kênh <strong>DUY NHẤT</strong> mình gửi các Template Notion mẫu,<br>
+      bộ Prompt AI và hỗ trợ bạn trực tiếp cách setup hệ thống 2Brain.
+    </p>
+    <a href="https://t.me/+ju9HuPOviThhMmU1" target="_blank" class="btn-telegram">
+      <div class="tg-icon">✈</div>
+      BẤM VÀO ĐÂY ĐỂ VÀO TELEGRAM
+    </a>
+    <div class="tg-warning">
+      <span>⚠️</span>
+      <span><strong>Quan trọng:</strong> Nhóm sẽ kiểm duyệt thành viên — hãy vào ngay để được duyệt sớm nhất.</span>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <div class="steps-section">
+    <p class="steps-title">📋 Lộ trình tiếp theo của bạn</p>
+    <div class="steps-list">
+
+      <div class="step">
+        <div class="step-icon done">✓</div>
+        <div class="step-content">
+          <span class="step-badge badge-done">Hoàn tất</span>
+          <h3>Bước 1: Giữ chỗ thành công</h3>
+          <p>Tên &amp; Email của bạn đã được lưu an toàn vào hệ thống. Bạn đã giữ được 1 trong 500 chỗ cuối cùng.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon active">✈</div>
+        <div class="step-content">
+          <span class="step-badge badge-action">Làm ngay!</span>
+          <h3>Bước 2: Vào nhóm Telegram</h3>
+          <p>Bấm nút xanh phía trên để vào ngay. Mọi tài liệu, template và thảo luận thực chiến sẽ diễn ra tại đây.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon pending">✉</div>
+        <div class="step-content">
+          <span class="step-badge badge-soon">Tiếp theo</span>
+          <h3>Bước 3: Kiểm tra Email xác nhận</h3>
+          <p>Hệ thống vừa gửi email tự động đến hộp thư của bạn. Không thấy? Kiểm tra tab <strong>Quảng cáo / Spam</strong>.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon pending">💻</div>
+        <div class="step-content">
+          <span class="step-badge badge-soon">Chuẩn bị</span>
+          <h3>Bước 4: Tạo tài khoản Notion.so</h3>
+          <p>Tạo sẵn tài khoản miễn phí tại <strong>notion.so</strong> trên máy tính để sẵn sàng sao chép hệ thống 2Brain ngay khi vào nhóm.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VIRAL BOX -->
+  <div class="viral-box">
+    <h3>💝 Gợi ý nhỏ — Mời thêm bạn bè cùng làm</h3>
+    <p>Xây dựng thương hiệu cá nhân có đồng đội sẽ đi nhanh hơn rất nhiều. Nếu bạn có người quen cũng đang "bí" ý tưởng viết bài — hãy gửi link này cho họ:</p>
+    <div class="share-link-box">
+      <span class="share-link" id="shareLink">https://your-landing-page-url.com</span>
+      <button class="copy-btn" onclick="copyLink()">Sao chép</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2025 <span>2Brain Community</span> — Hệ Thống Nội Dung Cho Chuyên Gia Việt</p>
+  </div>
+</footer>
+
+<script>
+  function copyLink() {
+    const link = document.getElementById('shareLink').textContent;
+    navigator.clipboard.writeText(link).then(() => {
+      const btn = document.querySelector('.copy-btn');
+      btn.textContent = 'Đã sao chép ✓';
+      setTimeout(() => btn.textContent = 'Sao chép', 2000);
+    });
+  }
+</script>
+</body>
+</html>
