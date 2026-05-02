@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2Brain Community — Viết Bài 15 Phút/Ngày Dành Cho Chuyên Gia Việt</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #FFFAF7;
@@ -19,7 +19,7 @@
     --white: #1A1A1A;
     --muted: rgba(26,26,26,0.55);
     --red: #DC2626;
-    --green: #16A34A;
+    --green: #1B5E20;
     --blue: #1D4ED8;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -27,7 +27,7 @@
   body{
     background:var(--bg);
     color:var(--white);
-    font-family:'Lora',serif;
+    font-family:'Inter',sans-serif;
     font-size:16px;
     line-height:1.7;
     overflow-x:hidden;
@@ -93,7 +93,7 @@
   /* ═══════════════ CTA BUTTON ═══════════════ */
   .btn-cta{
     display:inline-block;
-    background:var(--orange);
+    background:var(--green);
     color:#fff;
     font-family:'Playfair Display',serif;
     font-size:18px;
@@ -107,14 +107,14 @@
     position:relative;
     overflow:hidden;
     transition:transform 0.2s,box-shadow 0.2s;
-    box-shadow:0 0 0 0 var(--orange-glow);
-    animation:pulse 2.5s ease-in-out infinite;
+    box-shadow:0 0 0 0 rgba(27,94,32,0.3);
+    animation:pulseGreen 2.5s ease-in-out infinite;
   }
-  .btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--orange-glow)}
+  .btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(27,94,32,0.3)}
   .btn-cta:active{transform:translateY(0)}
-  @keyframes pulse{
-    0%,100%{box-shadow:0 0 0 0 var(--orange-glow)}
-    50%{box-shadow:0 0 0 14px rgba(249,115,22,0)}
+  @keyframes pulseGreen{
+    0%,100%{box-shadow:0 0 0 0 rgba(27,94,32,0.4)}
+    50%{box-shadow:0 0 0 14px rgba(27,94,32,0)}
   }
   .btn-cta-outline{
     display:inline-block;
@@ -338,8 +338,8 @@
   .final-guarantee{
     display:inline-flex;align-items:center;gap:10px;
     font-size:13px;color:#555;
-    background:rgba(22,163,74,0.07);
-    border:1px solid rgba(22,163,74,0.2);
+    background:rgba(27,94,32,0.07);
+    border:1px solid rgba(27,94,32,0.2);
     border-radius:100px;
     padding:8px 20px;margin-top:20px;
   }
@@ -427,7 +427,7 @@
     background:#FAFAFA;color:#111;
     border:1.5px solid rgba(0,0,0,0.14);
     border-radius:10px;
-    font-family:'Lora',serif;font-size:15px;
+    font-family:'Inter',sans-serif;font-size:15px;
     outline:none;
     transition:border-color 0.2s,box-shadow 0.2s;
     appearance:none;
@@ -448,7 +448,7 @@
   }
   .btn-submit{
     width:100%;padding:18px 24px;
-    background:var(--orange);
+    background:var(--green);
     color:#fff;
     font-family:'Playfair Display',serif;
     font-size:19px;font-weight:700;
@@ -457,10 +457,10 @@
     cursor:pointer;
     margin-top:8px;
     transition:transform 0.2s,box-shadow 0.2s,opacity 0.2s;
-    animation:pulse 2.5s ease-in-out infinite;
+    animation:pulseGreen 2.5s ease-in-out infinite;
     position:relative;overflow:hidden;
   }
-  .btn-submit:hover{transform:translateY(-2px);box-shadow:0 10px 32px var(--orange-glow)}
+  .btn-submit:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(27,94,32,0.3)}
   .btn-submit:active{transform:translateY(0)}
   .btn-submit:disabled{opacity:0.7;cursor:not-allowed;animation:none}
   .btn-submit .shimmer{
