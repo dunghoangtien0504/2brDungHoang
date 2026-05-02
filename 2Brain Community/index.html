@@ -16,8 +16,8 @@
     --orange: #EA6C00;
     --orange-glow: rgba(234,108,0,0.22);
     --amber: #D97706;
-    --white: #1A1A1A;
-    --muted: #374151;
+    --white: #000000;
+    --muted: #444444;
     --red: #DC2626;
     --green: #1B5E20;
     --blue: #1D4ED8;
@@ -26,10 +26,11 @@
   html{scroll-behavior:smooth}
   body{
     background:var(--bg);
-    color:var(--white);
+    color:#222;
     font-family:'Inter',sans-serif;
+    font-weight:400;
     font-size:16px;
-    line-height:1.7;
+    line-height:1.75;
     overflow-x:hidden;
   }
   /* Subtle pattern overlay */
@@ -70,12 +71,12 @@
   }
   .hero h1{
     font-family:'Playfair Display',serif;
-    font-size:clamp(26px,4.5vw,44px);
-    font-weight:700;
-    line-height:1.25;
-    color:#111;
+    font-size:clamp(28px,4.8vw,48px);
+    font-weight:800;
+    line-height:1.2;
+    color:#000;
     margin-bottom:24px;
-    letter-spacing:-0.5px;
+    letter-spacing:-1px;
   }
   .hero h1 .highlight{
     color:var(--orange);
@@ -166,10 +167,10 @@
   }
   .section-title{
     font-family:'Playfair Display',serif;
-    font-size:clamp(26px,4vw,40px);
-    font-weight:700;
+    font-size:clamp(28px,4.5vw,42px);
+    font-weight:800;
     line-height:1.2;
-    color:#111;
+    color:#000;
     margin-bottom:16px;
   }
   .section-sub{font-size:16px;color:var(--muted);margin-bottom:48px;max-width:560px}
