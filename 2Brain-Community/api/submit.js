@@ -4,15 +4,14 @@ module.exports = async (req, res) => {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
 
-  const { fullName, email, industry } = req.body;
+  const { fullName, email } = req.body;
 
-  if (!fullName || !email || !industry) {
-    return res.status(400).json({ message: 'Vui lòng nhập đầy đủ thông tin.' });
+  if (!fullName || !email) {
+    return res.status(400).json({ message: 'Vui lòng nhập đầy đủ tên và email.' });
   }
 
   const API_KEY = process.env.SYSTEME_API_KEY;
   if (!API_KEY) {
-    console.error("Missing SYSTEME_API_KEY environment variable");
     return res.status(500).json({ message: 'Lỗi cấu hình máy chủ (Thiếu API Key).' });
   }
 
@@ -23,10 +22,6 @@ module.exports = async (req, res) => {
         {
           slug: "first_name",
           value: fullName
-        },
-        {
-          slug: "industry", 
-          value: industry
         }
       ],
       tags: [
@@ -45,17 +40,20 @@ module.exports = async (req, res) => {
       body: JSON.stringify(payload),
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Systeme.io Error:', response.status, errorText);
-      return res.status(response.status).json({ message: 'Lỗi kết nối Systeme.io', details: errorText });
+      console.error('Systeme.io Error:', response.status, data);
+      return res.status(response.status).json({ 
+        message: 'Lỗi kết nối Systeme.io', 
+        details: data 
+      });
     }
 
-    const data = await response.json();
     return res.status(200).json({ success: true, message: 'Thêm contact thành công!', data });
     
   } catch (error) {
     console.error('Lỗi Server Function:', error);
-    return res.status(500).json({ message: 'Đã xảy ra lỗi nội bộ máy chủ.' });
+    return res.status(500).json({ message: 'Đã xảy ra lỗi nội bộ máy chủ.', error: error.message });
   }
 };
