@@ -475,6 +475,57 @@
   }
   .form-error-msg.show{display:block}
 
+  /* ═══ FUTURE PACING ═══ */
+  .future-pacing{
+    background:#FFF7ED;
+    border-radius:16px;
+    padding:32px 40px;margin:32px 0;
+    border:1px dashed rgba(234,108,0,0.3);
+  }
+  .fp-item{
+    display:flex;align-items:flex-start;gap:16px;margin-bottom:20px;
+  }
+  .fp-item:last-child{margin-bottom:0;}
+  .fp-icon{
+    width:32px;height:32px;background:var(--green);color:#fff;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:14px;flex-shrink:0;font-weight:bold;
+  }
+  .fp-text{font-size:16px;color:#111;font-weight:600;line-height:1.5;}
+
+  /* ═══ PRODUCT BREAKDOWN ═══ */
+  .modules-grid{
+    display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:20px;
+    margin-top:30px;
+  }
+  .module-card{
+    background:#fff;border:1px solid var(--border);border-radius:12px;
+    padding:24px;box-shadow:0 4px 12px rgba(0,0,0,0.03);
+    transition:transform 0.2s;
+  }
+  .module-card:hover{transform:translateY(-4px);border-color:var(--orange);}
+  .module-title{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;color:#111;margin-bottom:8px;}
+  .module-desc{font-size:14px;color:var(--muted);}
+
+  /* ═══ FOUNDER STORY ═══ */
+  .founder-section{
+    background:#fff;border:1px solid var(--border);border-radius:16px;
+    padding:40px;margin:40px 0;
+    display:flex;gap:40px;align-items:center;
+  }
+  @media(max-width:768px){
+    .founder-section{flex-direction:column;text-align:center;padding:32px 20px;}
+  }
+  .founder-img-wrap{
+    flex-shrink:0;width:300px;
+    border-radius:12px;overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,0.1);
+  }
+  .founder-img{width:100%;height:auto;display:block;}
+  .founder-content h3{font-family:'Oswald',sans-serif;font-size:24px;font-weight:700;color:#111;margin-bottom:16px;}
+  .founder-content p{font-size:15px;color:var(--muted);margin-bottom:16px;line-height:1.7;}
+  .founder-content p strong{color:#111;}
+
   /* ═══════════════ RESPONSIVE ═══════════════ */
   @media(max-width:600px){
     .hero h1{font-size:30px}
@@ -588,6 +639,90 @@
         <div class="solution-num">04</div>
         <h3>Đăng đều đặn mãi mãi</h3>
         <p>Không còn cảnh "bí bài", không còn đăng ngắt quãng — thương hiệu cá nhân luôn sáng đèn.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ NEW SECTION: FUTURE PACING ═══════════════ -->
+<section>
+  <div class="container">
+    <div class="section-tag fade-in">Kết quả thực tế</div>
+    <h2 class="section-title fade-in">Bạn sẽ đạt được gì sau khi ứng dụng công cụ 2Brain?</h2>
+    
+    <div class="future-pacing fade-in">
+      <div class="fp-item">
+        <div class="fp-icon">✓</div>
+        <div class="fp-text">Biết rõ mình là ai, nói về gì — không còn ngồi suy nghĩ "hôm nay viết chủ đề gì" nữa.</div>
+      </div>
+      <div class="fp-item">
+        <div class="fp-icon">✓</div>
+        <div class="fp-text">Rút ngắn thời gian viết bài từ 3 giờ xuống chỉ còn 5-15 phút nhờ hệ thống có sẵn.</div>
+      </div>
+      <div class="fp-item">
+        <div class="fp-icon">✓</div>
+        <div class="fp-text">Không bao giờ cạn ý tưởng — cuộc sống bình thường của bạn biến thành kho nội dung vô tận.</div>
+      </div>
+      <div class="fp-item">
+        <div class="fp-icon">✓</div>
+        <div class="fp-text">Chuyển từ "khán giả" sang "người tạo nội dung" — xây dựng tài sản thương hiệu thực sự.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ NEW SECTION: PRODUCT BREAKDOWN ═══════════════ -->
+<section style="background:var(--bg2);padding:60px 0;">
+  <div class="container">
+    <div class="section-tag fade-in">Hệ thống</div>
+    <h2 class="section-title fade-in">Bên trong Hệ Thống 2Brain có gì?</h2>
+    <p class="section-sub fade-in">8 module đã được thiết kế và điền mẫu sẵn, bạn chỉ việc sao chép và làm theo.</p>
+
+    <div class="modules-grid">
+      <div class="module-card fade-in stagger-1">
+        <div class="module-title">Brand Voice Canvas</div>
+        <div class="module-desc">10 câu hỏi cốt lõi giúp bạn tìm ra giọng văn riêng và 3 chủ đề ngách cho thương hiệu cá nhân.</div>
+      </div>
+      <div class="module-card fade-in stagger-2">
+        <div class="module-title">Media Bank</div>
+        <div class="module-desc">Kho lưu trữ giúp bạn "thu thập chất liệu" từ cuộc sống: câu nói hay, bài học, sai lầm.</div>
+      </div>
+      <div class="module-card fade-in stagger-3">
+        <div class="module-title">Story Bank</div>
+        <div class="module-desc">5 khuôn câu chuyện cá nhân hiệu quả nhất. Điền trải nghiệm thật của bạn vào ô có sẵn.</div>
+      </div>
+      <div class="module-card fade-in stagger-4">
+        <div class="module-title">Content Calendar</div>
+        <div class="module-desc">Lịch đăng bài 30 ngày đã được điền sẵn theo chủ đề. Không cần tự hỏi "hôm nay đăng gì".</div>
+      </div>
+      <div class="module-card fade-in stagger-1">
+        <div class="module-title">200 Hook Thu Hút</div>
+        <div class="module-desc">200 câu mở bài viết sẵn, chia theo 10 loại nội dung phổ biến nhất. Copy, đổi tên và đăng.</div>
+      </div>
+      <div class="module-card fade-in stagger-2">
+        <div class="module-title">Quy Trình Viết Bài</div>
+        <div class="module-desc">5 bước từ ý tưởng → hook → nội dung → kêu gọi → đăng. Nhanh gọn và chuẩn xác.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ NEW SECTION: FOUNDER STORY ═══════════════ -->
+<section>
+  <div class="container">
+    <div class="founder-section fade-in">
+      <div class="founder-img-wrap">
+        <!-- Ảnh của Dũng Hoàng -->
+        <img src="dung-hoang.jpg" alt="Dũng Hoàng" class="founder-img">
+      </div>
+      <div class="founder-content">
+        <h3>Mình là Dũng Hoàng — và đây là lý do mình tạo file này</h3>
+        <p>Một thời gian trước, mình ngồi vào bàn muốn đăng bài — và cứ thế ngồi 3 tiếng. <strong>Không phải không có gì để viết</strong>. Mà là không biết bắt đầu từ đâu, không biết viết theo kiểu gì, không biết chủ đề này có ai quan tâm không.</p>
+        <p>Mình thử nhiều cách, nhưng vẫn ngồi nhìn màn hình trống. Vấn đề không phải thiếu kiến thức — mà là <strong>không có hệ thống để bắt đầu</strong>.</p>
+        <p>Sau khi tự xây file Notion này cho riêng mình, mình đã tạo ra <strong>35 bài/tuần</strong>, đăng bài đều đặn mỗi ngày và thu hút được hàng trăm khách hàng tiềm năng.</p>
+        <p>Mình không phải "KOL triệu follow", mình chỉ là người đã tìm ra cách <strong>không còn ngồi nhìn màn hình trắng</strong> — và đóng gói lại để bạn không phải mất thời gian như mình.</p>
       </div>
     </div>
   </div>
